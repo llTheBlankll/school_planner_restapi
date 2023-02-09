@@ -3,7 +3,7 @@ DROP DATABASE IF EXISTS school_planner;
 CREATE DATABASE school_planner;
 
 -- Create own database user.
-CREATE USER 'school-planner'@'%';
+CREATE USER 'school-planner'@'localhost' IDENTIFIED BY "public";
 GRANT SELECT, INSERT, DELETE, UPDATE ON school_planner.* TO 'school-planner'@'%';
 
 -- Create database structure
