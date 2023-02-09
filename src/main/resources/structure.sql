@@ -3,8 +3,10 @@ DROP DATABASE IF EXISTS school_planner;
 CREATE DATABASE school_planner;
 
 -- Create own database user.
-CREATE USER 'school-planner'@'localhost' IDENTIFIED BY "public";
-GRANT SELECT, INSERT, DELETE, UPDATE ON school_planner.* TO 'school-planner'@'%';
+FLUSH PRIVILEGES;
+CREATE USER 'schoolplanner'@'localhost' IDENTIFIED WITH "public";
+GRANT SELECT, INSERT, DELETE, UPDATE ON school_planner.* TO 'schoolplanner'@'localhost';
+FLUSH PRIVILEGES;
 
 -- Use database
 use school_planner;
@@ -66,4 +68,9 @@ CREATE TABLE agenda_homework (
     homework_notes TEXT,
     PRIMARY KEY (homework_id),
     CONSTRAINT fk_homework_subject FOREIGN KEY (homework_subject) REFERENCES subjects (subject_id)
+);
+
+CREATE TABLE agenda_reminder (
+    reminder_id INT AUTO_INCREMENT NOT NULL ,
+    reminder_name VARCHAR(128)
 )
