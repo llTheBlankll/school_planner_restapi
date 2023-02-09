@@ -6,6 +6,9 @@ CREATE DATABASE school_planner;
 CREATE USER 'school-planner'@'localhost' IDENTIFIED BY "public";
 GRANT SELECT, INSERT, DELETE, UPDATE ON school_planner.* TO 'school-planner'@'%';
 
+-- Use database
+use school_planner;
+
 -- Create database structure
 
 CREATE TABLE classroom (
