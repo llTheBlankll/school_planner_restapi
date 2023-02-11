@@ -54,13 +54,14 @@ public class ClassroomController {
     }
 
     @DeleteMapping("/delete")
-    public void deleteClassroom(@RequestParam("id") Long id , @RequestBody Classroom classroom) {
-        if (id > 0) {
-            this.classroomRepository.deleteById(id.intValue());
-            return;
-        }
-
+    public void deleteClassroom(@RequestBody Classroom classroom) {
         logger.debug("Classroom " + classroom.getRoomName() + " was deleted successfully.");
         this.classroomRepository.delete(classroom);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteClassroomById(@PathVariable("id") Long id) {
+        logger.debug("Classroom with ID " + id + " was successfully deleted!");
+        this.classroomRepository.deleteById(id.intValue());
     }
 }

@@ -65,8 +65,8 @@ public class SubjectController {
         this.subjectRepository.delete(subject);
     }
 
-    @DeleteMapping("/delete")
-    public void deleteSubjectById(@RequestParam("id") Long id) {
+    @DeleteMapping("/delete/{id}")
+    public void deleteSubjectById(@PathVariable("id") Long id) {
         this.subjectRepository.deleteById(id.intValue());
     }
 }
