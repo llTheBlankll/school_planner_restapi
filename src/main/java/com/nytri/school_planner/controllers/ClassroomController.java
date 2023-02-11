@@ -54,19 +54,13 @@ public class ClassroomController {
     }
 
     @DeleteMapping("/delete")
-    public void deleteClassroom(@RequestBody Classroom classroom) {
-        logger.debug("Classroom " + classroom.getRoomName() + " was deleted successfully.");
-        this.classroomRepository.delete(classroom);
-    }
-
-    @DeleteMapping("/delete")
-    public boolean deleteClassroom_byId(@RequestParam("id") Long id) {
-        if (id > Integer.MAX_VALUE) {
-            logger.error("INTEGER EXCEEDED MAX VALUE");
-            return false;
+    public void deleteClassroom(@RequestParam("id") Long id , @RequestBody Classroom classroom) {
+        if (id > 0) {
+            this.classroomRepository.deleteById(id.intValue());
+            return;
         }
 
-        this.classroomRepository.deleteById(id.intValue());
-        return true;
+        logger.debug("Classroom " + classroom.getRoomName() + " was deleted successfully.");
+        this.classroomRepository.delete(classroom);
     }
 }
