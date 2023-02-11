@@ -11,5 +11,5 @@ public interface AttendanceCategoryRepository extends JpaRepository<AttendanceCa
     List<AttendanceCategory> findByCategoryNameContainsIgnoreCase(@Nullable String categoryName);
 
     @Override
-    boolean existsById(@NonNull Integer integer);
+    boolean existsById(@NonNull Integer id);
 }
