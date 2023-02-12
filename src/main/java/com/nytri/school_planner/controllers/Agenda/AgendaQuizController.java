@@ -17,8 +17,8 @@ public class AgendaQuizController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     private final AgendaQuizRepository agendaQuizRepository;
 
-    public AgendaQuizController(AgendaQuizRepository agendaQuizRepositoryn) {
-        this.agendaQuizRepository = agendaQuizRepositoryn;
+    public AgendaQuizController(AgendaQuizRepository agendaQuizRepository) {
+        this.agendaQuizRepository = agendaQuizRepository;
     }
 
     private boolean validateQuiz(AgendaQuiz agendaQuiz) {
