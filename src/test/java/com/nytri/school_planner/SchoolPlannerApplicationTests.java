@@ -14,4 +14,5 @@ class SchoolPlannerApplicationTests {
     @Value(value = "${local.server.port}")
     private int port;
 
+    private final String host = "http://localhost:" + port;
 }
