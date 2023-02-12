@@ -72,5 +72,20 @@ CREATE TABLE agenda_homework (
 
 CREATE TABLE agenda_reminder (
     reminder_id INT AUTO_INCREMENT NOT NULL ,
-    reminder_name VARCHAR(128)
-)
+    reminder_name VARCHAR(128),
+    reminder_datetime DATETIME,
+    reminder_color VARCHAR(48),
+    reminder_note TEXT,
+    PRIMARY KEY (reminder_id)
+);
+
+CREATE TABLE agenda_quiz (
+    quiz_id INT AUTO_INCREMENT NOT NULL ,
+    quiz_name VARCHAR(128),
+    quiz_date DATE,
+    quiz_color VARCHAR(48),
+    quiz_subject INT,
+    PRIMARY KEY (quiz_id),
+    CONSTRAINT fk_quiz_subject FOREIGN KEY (quiz_subject) REFERENCES subjects (subject_id)
+);
+
